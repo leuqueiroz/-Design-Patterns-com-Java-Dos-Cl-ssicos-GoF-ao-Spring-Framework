@@ -44,6 +44,25 @@ public class Order {
     public Pizza getPizza() {
         return pizza;
     }
+
+    package customers;
+
+import orders.Order;
+import orders.CustomerNotifier;
+
+public class Customer implements CustomerNotifier {
+    private String name;
+
+    public Customer(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void update(Order order) {
+        System.out.println("Hello " + name + ", your order for " + order.getPizza().getName() + " is ready!");
+    }
+}
+
 }
 
 interface CustomerNotifier {
